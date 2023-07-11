@@ -1,55 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Flask Demo App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
-      h1 {
-        font-size: 40px;
-        font-family: "HP Simplified";
-        font-weight: normal;
-        color: rgb(50,50,50);
-        text-align: center;
-      }
-
       #banner {
-        width: 100%;
         height: 360px;
-        object-fit: cover;
-      }
-
-      h2 {
-        font-family: Georgia;
-        font-size: 32px;
-        color: rgb(100,100, 100);
-        text-align: center;
-        font-weight: normal;
-      }
-
-      .bodytext {
-        font-family: Roboto;
-        color: rgb(80,80,80);
-      }
-
-      #container {
-        max-width: 720px;
-        margin: 0 auto 0 auto;
+        width: 100%;
       }
     </style>
   </head>
+  </head>
   <body>
-    <div id="container">
-      <h1>Jovian Careers</h1>
-      <img id="banner" src="https://flask-website-demo.darthsoura.repl.co/static/banner.jpeg">
-    <h2>About Jovian</h2>
-    <p class="bodytext">
+    <div class="container-sm position-relative w-50 p-3">
+      <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
+      <img class= "img-fluid" id="banner" src="https://flask-website-demo.darthsoura.repl.co/static/banner.jpeg">
+    <h2 class="text-center mt-2 mb-4">About Jovian</h2>
+    <p class = "lead">
       Jovian is an innovative AI learning company that has made remarkable strides in the field of artificial intelligence. With a relentless pursuit of excellence and a team of brilliant minds, Jovian has established itself as a trailblazer in the industry. Their primary focus lies in developing cutting-edge algorithms and machine learning models that harness the power of data to solve complex problems. By leveraging the latest advancements in AI technology, Jovian aims to revolutionize various sectors, including healthcare, finance, and cybersecurity.
     </p>
-    <h2>Open Positions</h2>
-    <p class="bodytext">TODO - Show the jobs here</p>
-      <div style="text-align:center;">
-      <button>Contact Us</button>
-      <p>Copyright 2023, SB</p>
+    <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+
+    <p class="lead">
+      {% for job in jobs %}
+        {% include 'jobitem.html' %}
+      {% endfor %}
+    </div>
+    </p>
+      <div class="text-center">
+      <button class="btn btn-primary btn-lg">Contact Us</button>
+      <p class="mt-4">Copyright 2023, SB</p>
       </div>
-  </div>
+  
   </body>
 </html>
